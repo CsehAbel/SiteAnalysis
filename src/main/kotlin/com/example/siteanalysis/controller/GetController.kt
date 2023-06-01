@@ -1,5 +1,6 @@
 package com.example.siteanalysis.controller
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
 import org.springframework.http.MediaType
@@ -9,16 +10,18 @@ import org.springframework.web.client.RestTemplate
 import org.springframework.web.util.UriComponentsBuilder
 import java.net.http.HttpHeaders
 
+import com.example.siteanalysis.model.ResponseObject
+
 @Component
 class GetController() {
 
-    fun sendRequestAndProcessResponse(ip:String,cidr:String) {
+    fun sendRequestAndProcessResponse(ip:String,cidr:String): String? {
         val restTemplate = RestTemplate()
         val url = "http://localhost:8060/search_network"
         // Build the URL with query parameters
         val uriBuilder = UriComponentsBuilder.fromHttpUrl(url)
-                .queryParam("ip", "10.221.6.208")
-                .queryParam("cidr", "29")
+                .queryParam("ip", ip)
+                .queryParam("cidr", cidr)
                 .build()
 
         // Send the GET request and get the response
@@ -28,9 +31,11 @@ class GetController() {
         // Process the response
         if (responseEntity.statusCode.is2xxSuccessful) {
             val responseBody = responseEntity.body
-            // Continue working with the response body...
+
+            return responseBody
         } else {
             // Handle the error case...
+            return ""
         }
     }
 }
