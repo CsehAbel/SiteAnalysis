@@ -63,7 +63,7 @@ class ExcelReader {
         return objectList
     }
 
-    private fun shouldSkip(cell: XSSFCell, cellValue: Any?, headerCell: XSSFCell, objectProperties: MutableMap<String, Any>): Boolean {
+    private fun shouldSkip(cell: XSSFCell, cellValue: Any?, headerCell: XSSFCell?, objectProperties: MutableMap<String, Any>): Boolean {
         var cellColor = getCellBackgroundColor(cell)
 
         if (!isGrayShade(cellColor)) {
@@ -76,7 +76,7 @@ class ExcelReader {
         return false
     }
 
-    private fun addCellToProperties(headerCell: XSSFCell, cellValue: Any?, objectProperties: MutableMap<String, Any>) {
+    private fun addCellToProperties(headerCell: XSSFCell?, cellValue: Any?, objectProperties: MutableMap<String, Any>) {
         if (headerCell != null && cellValue != null) {
             objectProperties[headerCell.stringCellValue] = cellValue
         }
