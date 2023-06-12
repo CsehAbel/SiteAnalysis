@@ -20,7 +20,7 @@ class ExcelReaderTest {
 
     @Test
     fun testFindExcelFile(): File? {
-        val dir = "C:\\UserData\\z004a6nh\\Documents\\OneDrive - Siemens AG\\DE\\DRS O"
+        val dir = "C:\\UserData\\z004a6nh\\Documents\\OneDrive - Siemens AG\\DE\\GLZ LU"
         //create a regex pattern to match a file with .xlsx extension and the word categorised in it
         val pattern= "^.*progress.*\\.xlsx$"
         //case insensitive
