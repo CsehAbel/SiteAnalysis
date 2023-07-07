@@ -30,6 +30,8 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.12.3")
     implementation("org.springframework.data:spring-data-elasticsearch:5.0.6")
     implementation("org.springframework.data:spring-data-elasticsearch:5.0.6")
+    implementation("commons-net:commons-net:3.9.0")
+    implementation("org.apache.commons:commons-csv:1.10.0")
     testImplementation("org.testng:testng:7.1.0")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
